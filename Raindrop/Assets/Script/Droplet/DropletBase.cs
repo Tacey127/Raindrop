@@ -5,7 +5,7 @@ using UnityEngine;
 public class DropletBase : MonoBehaviour
 {
 	[SerializeField] protected GameObject spriteHolder;
-	[SerializeField] float speed = 1;
+	[SerializeField] protected float speed = 1;
 
 	//z axis rotation
 	float rotation = 0;
@@ -42,8 +42,6 @@ public class DropletBase : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
 	{
-		Debug.Log("TR");
-
 
 		DropletBase otherDroplet = other.GetComponent<DropletBase>();
 
@@ -55,7 +53,7 @@ public class DropletBase : MonoBehaviour
 
 		if (transform.localScale.x < other.transform.localScale.x)
 		{
-			OnAbsorbed(otherDroplet);
+			OnAbsorbed();
 		}
 
 	}
@@ -66,7 +64,7 @@ public class DropletBase : MonoBehaviour
 		Destroy(other.gameObject);
 	}
 
-	protected void OnAbsorbed(DropletBase other)
+	protected void OnAbsorbed()
     {
 
     }

@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Spawns droplets based on spawnRate at different positions
+/// </summary>
 public class DropletSpawner : MonoBehaviour {
-
+	
 	[SerializeField] float spawnRate;
 	[SerializeField] float spawnSizeVariance;
 	[SerializeField] GameObject spawnThing;
