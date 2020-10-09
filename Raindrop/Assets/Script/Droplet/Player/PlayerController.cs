@@ -6,7 +6,7 @@ public class PlayerController : DropletBase
 {
     #region singleton
 
-    public PlayerController instance;
+    public static PlayerController instance;
 
     private void Awake()
     {
@@ -52,6 +52,11 @@ public class PlayerController : DropletBase
 
         Quaternion smoothedRotation = Quaternion.Lerp(spriteHolder.transform.rotation, desiredRotation, turnSmoothing * Time.deltaTime);
         spriteHolder.transform.rotation = smoothedRotation;
+    }
+
+    public float getSize()
+    {
+        return transform.localScale.x;
     }
 
 }
