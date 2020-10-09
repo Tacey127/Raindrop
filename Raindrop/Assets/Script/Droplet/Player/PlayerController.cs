@@ -59,5 +59,10 @@ public class PlayerController : DropletBase
         return transform.localScale.x;
     }
 
+    protected override void OnAbsorbed()
+    {
+        Debug.Log("Player is Dead.");
+    }
+
 }
 

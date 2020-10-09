@@ -64,7 +64,7 @@ public class DropletBase : MonoBehaviour
 		Destroy(other.gameObject);
 	}
 
-	protected void OnAbsorbed()
+	protected virtual void OnAbsorbed()
     {
 
     }
