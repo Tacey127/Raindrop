@@ -28,10 +28,13 @@ public class DropletSpawner : MonoBehaviour {
 	void SpawnDroplet()
     {
 		Debug.Log("spawned");
-		float _size = Random.Range(0.2f, spawnSizeVariance * PlayerController.instance.getSize());
+		float _size = Random.Range(0.2f, spawnSizeVariance * PlayerHolder.instance.getSize());
 		
 		AIDroplet droplet = Instantiate(spawnObject, new Vector3(getSpawnLoc(), transform.position.y, 0), Quaternion.identity).GetComponent<AIDroplet>();
 		droplet.ApplyParameters(_size, 1, Vector3.down);
+
+		//Apply colour
+		droplet.ApplyColour(new Color(Random.Range(0.5f, 1f), Random.Range(0.5f, 1f), Random.Range(0.5f, 1f), Random.Range(0.5f, 0.9f)));
 	}
 
 	float getSpawnLoc(){

@@ -4,23 +4,6 @@ using UnityEngine;
 
 public class PlayerController : DropletBase
 {
-    #region singleton
-
-    public static PlayerController instance;
-
-    private void Awake()
-    {
-        if(instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(this);
-        }
-    }
-
-    #endregion
 
     [SerializeField] float turnSmoothing = 0.125f;
  
@@ -54,10 +37,6 @@ public class PlayerController : DropletBase
         spriteHolder.transform.rotation = smoothedRotation;
     }
 
-    public float getSize()
-    {
-        return transform.localScale.x;
-    }
 
     protected override void OnAbsorbed()
     {

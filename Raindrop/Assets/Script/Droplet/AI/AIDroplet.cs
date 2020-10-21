@@ -14,6 +14,11 @@ public class AIDroplet : DropletBase
 		speed = _speed;
     }
 
+	public void ApplyColour(Color _colour)
+    {
+		GetComponentInChildren<SpriteRenderer>().color = _colour;
+	}
+
 	/*
 	void Start () {
 		GetComponent<SpriteRenderer> ().color = new Color (Random.Range(0.5f, 1f), Random.Range(0.5f, 1f), Random.Range(0.5f, 1f), Random.Range(0.5f, 0.9f));
