@@ -2,18 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMouse : DropletBase
+public class PlayerMouse : PlayerHolder
 {
-    [SerializeField] Vector3 mousePos;
+    [SerializeField] Vector3 mousePos = Vector3.zero;
 
     [SerializeField] float lerpSmoothing = 0.125f;
     [SerializeField] float turnSmoothing = 0.2f;
 
-    [SerializeField] float minTurn;
-    [SerializeField] float maxTurn;
+    [SerializeField] float minTurn = -1;
+    [SerializeField] float maxTurn = 1;
+
+    [SerializeField] float shrinkage = 0.1f;
 
     protected override void RunUpdate()
     {
+        ShrinkOverTime();
         AddInput();
         RotateSprite(direction.x);
         base.RunUpdate();
@@ -30,6 +33,7 @@ public class PlayerMouse : DropletBase
         Mathf.Clamp(direction.y, -5.0f, 5.0f);
     }
 
+    //Movement
     void RotateSprite(float dir)
     {
         Quaternion desiredRotation = Quaternion.identity;
@@ -45,9 +49,19 @@ public class PlayerMouse : DropletBase
         Quaternion smoothedRotation = Quaternion.Lerp(spriteHolder.transform.rotation, desiredRotation, turnSmoothing * Time.deltaTime);
         spriteHolder.transform.rotation = smoothedRotation;
     }
+
+    //Collision
     protected override void OnAbsorbed()
     {
-        Debug.Log("Player is Dead.");
+    }
+
+    void ShrinkOverTime()
+    {
+        spriteHolder.transform.localScale -= Vector3.one * shrinkage * Time.deltaTime;
+        if(getSize() < 0)
+        {
+            Debug.Log("PlayerIsDead");
+        }
     }
 
 }

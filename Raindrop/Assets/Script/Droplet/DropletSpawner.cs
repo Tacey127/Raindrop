@@ -9,7 +9,7 @@ public class DropletSpawner : MonoBehaviour {
 	
 	[SerializeField] float spawnRate = 1;
 	[SerializeField] float spawnSizeVariance = 3;
-	[SerializeField] float spawnXDistance = 3;
+	[SerializeField] float spawnXDistance = 2;
 	//[SerializeField] GameObject spawnThing;
 	[SerializeField] GameObject spawnObject;
 	//[SerializeField] RectTransform spawnSpace;
@@ -29,9 +29,10 @@ public class DropletSpawner : MonoBehaviour {
     {
 		Debug.Log("spawned");
 		float _size = Random.Range(0.2f, spawnSizeVariance * PlayerHolder.instance.getSize());
-		
+		float _speed = (1 / _size) + 1;
+
 		AIDroplet droplet = Instantiate(spawnObject, new Vector3(getSpawnLoc(), transform.position.y, 0), Quaternion.identity).GetComponent<AIDroplet>();
-		droplet.ApplyParameters(_size, 1, Vector3.down);
+		droplet.ApplyParameters(_size, _speed, Vector3.down);
 
 		//Apply colour
 		droplet.ApplyColour(new Color(Random.Range(0.5f, 1f), Random.Range(0.5f, 1f), Random.Range(0.5f, 1f), Random.Range(0.5f, 0.9f)));

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : DropletBase
 {
-
+    /*
     [SerializeField] float turnSmoothing = 0.125f;
  
     protected override void RunUpdate()
@@ -42,6 +42,6 @@ public class PlayerController : DropletBase
     {
         Debug.Log("Player is Dead.");
     }
-
+    */
 }
 
