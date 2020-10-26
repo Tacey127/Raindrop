@@ -9,9 +9,11 @@ public class PlayerMouse : DropletBase
     [SerializeField] float lerpSmoothing = 0.125f;
     [SerializeField] float turnSmoothing = 0.2f;
 
+    [SerializeField] float minTurn;
+    [SerializeField] float maxTurn;
+
     protected override void RunUpdate()
     {
-        Debug.Log(direction);
         AddInput();
         RotateSprite(direction.x);
         base.RunUpdate();
@@ -33,7 +35,7 @@ public class PlayerMouse : DropletBase
         Quaternion desiredRotation = Quaternion.identity;
         if (dir != 0)//input accounts for deadzone
         {
-            desiredRotation.z = Mathf.Deg2Rad * 15 * dir;
+            desiredRotation.z = Mathf.Clamp(Mathf.Deg2Rad * 15 * dir, Mathf.Deg2Rad * minTurn, Mathf.Deg2Rad * maxTurn);
         }
         else
         {

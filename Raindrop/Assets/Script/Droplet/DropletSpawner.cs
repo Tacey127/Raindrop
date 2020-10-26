@@ -8,7 +8,7 @@ using UnityEngine;
 public class DropletSpawner : MonoBehaviour {
 	
 	[SerializeField] float spawnRate = 1;
-	[SerializeField] float spawnSizeVariance = 2;
+	[SerializeField] float spawnSizeVariance = 3;
 	[SerializeField] float spawnXDistance = 3;
 	//[SerializeField] GameObject spawnThing;
 	[SerializeField] GameObject spawnObject;
