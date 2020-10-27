@@ -14,7 +14,7 @@ public class PlayerWater : MonoBehaviour {
 	[SerializeField] Text scoreDisplay;
 	[SerializeField] Text hiScoreDisplay;
 	bool dead = false;
-	[SerializeField] GameObject spawner;
+	[SerializeField] GameObject spawner = null;
 	[SerializeField]float turnSmoothing = 0.125f;
 	static float HiScore;
 

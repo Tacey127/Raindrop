@@ -79,7 +79,7 @@ public class PlayerHolder : MonoBehaviour
 
 	protected void OnAbsorb(DropletBase other)
 	{
-		ScoreManager.instance.ApplyToScore(other.Score);
+		HUDManager.instance.UpdateScoreUI(other.Score);
 		transform.localScale += other.transform.localScale * 0.2f;
 		Destroy(other.gameObject);
 	}

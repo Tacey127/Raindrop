@@ -6,7 +6,6 @@ public class PlayerMouse : PlayerHolder
 {
     [SerializeField] Vector3 mousePos = Vector3.zero;
 
-    [SerializeField] float lerpSmoothing = 0.125f;
     [SerializeField] float turnSmoothing = 0.2f;
 
     [SerializeField] float minTurn = -1;
@@ -60,7 +59,8 @@ public class PlayerMouse : PlayerHolder
         spriteHolder.transform.localScale -= Vector3.one * shrinkage * Time.deltaTime;
         if(getSize() < 0)
         {
-            Debug.Log("PlayerIsDead");
+            HUDManager.instance.OnGameOver("You Dried!");
+            Debug.Log("Player Shrunk");
         }
     }
 
