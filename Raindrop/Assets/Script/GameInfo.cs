@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -22,7 +23,24 @@ public class GameInfo : ScriptableObject
         return false;
     }
 
+    #region GameInfo
 
-    //list unlockeditems
+    Sprite chosenSkin;
+    Material chosenBackground;
 
+    #endregion
+
+
+
+    //list skins
+    List<Tuple<Unlockable, Sprite>> skinList;
+
+    //list backgrounds
+    List<Tuple<Unlockable, Material>> backgroundList;
+}
+
+struct Unlockable
+{
+    bool locked;//button to unlock
+    bool unlocled;
 }
