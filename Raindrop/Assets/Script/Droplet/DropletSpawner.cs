@@ -10,14 +10,18 @@ public class DropletSpawner : MonoBehaviour {
 	[SerializeField] float spawnRate = 1;
 	[SerializeField] float spawnSizeVariance = 3;
 	[SerializeField] float spawnXDistance = 2;
-	//[SerializeField] GameObject spawnThing;
-	[SerializeField] GameObject spawnObject;
-	//[SerializeField] RectTransform spawnSpace;
+
+	public GameObject spawnObject = null;
 
 	float timeSinceSpawn = 0;
 
-	// Update is called once per frame
-	void Update () {
+    private void Start()
+    {
+		spawnObject = HUDManager.instance.info.themeSet.obstacleObject;    
+    }
+
+    // Update is called once per frame
+    void Update () {
 		timeSinceSpawn += Time.deltaTime;
 		if (timeSinceSpawn > 1 / spawnRate) {
 			timeSinceSpawn = 0;

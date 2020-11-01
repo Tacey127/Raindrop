@@ -13,3 +13,8 @@ MonoBehaviour:
   m_Name: InstanceInfo
   m_EditorClassIdentifier: 
   bestScore: 28
+  themeSet:
+    playerObject: {fileID: 36987339888880832, guid: 312f8cd4bb1d0724e910594a7eee7e2f, type: 3}
+    obstacleObject: {fileID: 2035722916863345674, guid: 39f87f36dd35b7548a2063966d990575, type: 3}
+    background: {fileID: 6306148922091664230, guid: 76e7118ef9573464c9b95be2a01102cb, type: 3}
+  unlockableList: []

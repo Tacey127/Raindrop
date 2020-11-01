@@ -23,26 +23,38 @@ public class PlayerHolder : MonoBehaviour
 
 	#endregion
 
-	[SerializeField] protected GameObject spriteHolder;
+	[SerializeField] protected Transform spriteHolder;
+	[SerializeField] protected Sprite sprite;
+
 	[SerializeField] protected float speed = 1;
 
-	//z axis rotation
-	float rotation = 0;
 
 	protected Vector3 direction = Vector3.zero;
 	protected Vector3 position = Vector3.zero;
 
-	#region base
+    #region base
 
-	// DO NOT OVERRIDE UPDATE
-	void Update()
+    private void Start()
+    {
+		RunStart();
+    }
+
+    // DO NOT OVERRIDE UPDATE
+    void Update()
 	{
 		RunUpdate();
 	}
 
 	#endregion
 
-	protected virtual void RunUpdate()
+	protected virtual void RunStart()
+    {
+		
+    }
+
+    #region Update
+
+    protected virtual void RunUpdate()
 	{
 		UpdatePosition();
 	}
@@ -57,9 +69,11 @@ public class PlayerHolder : MonoBehaviour
 		return direction * speed * Time.deltaTime;
 	}
 
-	#region collision
+    #endregion
 
-	private void OnTriggerEnter2D(Collider2D other)
+    #region collision
+
+    private void OnTriggerEnter2D(Collider2D other)
 	{
 
 		DropletBase otherDroplet = other.GetComponent<DropletBase>();

@@ -8,8 +8,6 @@ public class DropletBase : MonoBehaviour
 	[SerializeField] protected float speed = 1;
 	[SerializeField] public int Score = 0;
 
-	float rotation = 0;
-
 	protected Vector3 direction = Vector3.zero;
 	protected Vector3 position = Vector3.zero;
 

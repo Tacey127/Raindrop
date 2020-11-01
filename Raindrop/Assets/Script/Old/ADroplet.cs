@@ -6,7 +6,6 @@ public class ADroplet : MonoBehaviour {
 
 	float spd;
 	[SerializeField]float spdmlt = 1;
-	[SerializeField] float timer = 10;
 
 	[SerializeField] float heavyMult = 1;
 

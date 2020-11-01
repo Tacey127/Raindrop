@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class MoveSky : MonoBehaviour {
-	[SerializeField] float moveSpeed;
+	[SerializeField] float moveSpeed = 0;
     MeshRenderer offsetImage;
 
     float offsetTimer = 0;

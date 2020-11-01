@@ -25,22 +25,10 @@ public class GameInfo : ScriptableObject
 
     #region GameInfo
 
-    Sprite chosenSkin;
-    Material chosenBackground;
-
+    public ThemeSet themeSet;
+    
     #endregion
 
-
-
-    //list skins
-    List<Tuple<Unlockable, Sprite>> skinList;
-
-    //list backgrounds
-    List<Tuple<Unlockable, Material>> backgroundList;
+    [SerializeField]List<U_Base> unlockableList;
 }
 
-struct Unlockable
-{
-    bool locked;//button to unlock
-    bool unlocled;
-}

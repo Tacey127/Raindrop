@@ -7,12 +7,12 @@ public class PlayerWater : MonoBehaviour {
 
 	float dir;
 	[SerializeField]float spd = 1;
-	[SerializeField]GameObject gameOver;
-	public static float size;
-	[SerializeField] AudioSource sounds;
+	[SerializeField]GameObject gameOver = null;
+	public static float size = 0;
+	[SerializeField] AudioSource sounds = null;
 	float score = 0;
-	[SerializeField] Text scoreDisplay;
-	[SerializeField] Text hiScoreDisplay;
+	[SerializeField] Text scoreDisplay = null;
+	[SerializeField] Text hiScoreDisplay = null;
 	bool dead = false;
 	[SerializeField] GameObject spawner = null;
 	[SerializeField]float turnSmoothing = 0.125f;

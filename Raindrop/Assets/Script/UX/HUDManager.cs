@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using Unity.Mathematics;
 
 public class HUDManager : MonoBehaviour
 {
@@ -23,11 +24,22 @@ public class HUDManager : MonoBehaviour
 
     #endregion
 
-    [SerializeField] GameInfo info;
+    public GameInfo info = null;
+    private void Start()
+    {
+        OnStartGame();
+    }
+    public void OnStartGame()
+    {
+        Instantiate(info.themeSet.background, Vector3.zero, quaternion.identity);
+        Instantiate(info.themeSet.playerObject, Vector3.zero, quaternion.identity);
+    }
 
     #region Score
+
+    [Header("Score")]
     int currentScore = 0;
-    [SerializeField] TextMeshProUGUI scoreText;
+    [SerializeField] TextMeshProUGUI scoreText = null;
 
     public void UpdateScoreUI(int amount)
     {
@@ -37,17 +49,36 @@ public class HUDManager : MonoBehaviour
 
     #endregion
 
+    #region GameOver
+
+    [Header("Game Over")]
+
+    [SerializeField] GameObject gameOverScreen = null;
+    [SerializeField] TextMeshProUGUI gameOverText = null;
+    [SerializeField] TextMeshProUGUI gameOverScoreText = null;
+    [SerializeField] TextMeshProUGUI gameOverScoreAmount = null;
+
     public void OnGameOver(string reason = "No Game Over Reason!")
     {
         Debug.Log(reason);
         PauseGame();
 
+        gameOverScreen.SetActive(true);
+        gameOverText.text = reason;
+        gameOverScoreAmount.text = currentScore.ToString();
+
         if(info.CompareBestScore(currentScore))
         {
-            //New highscore
+            gameOverScoreText.text = "New High Score!";
+        }
+        else
+        {
+            gameOverScoreText.text = "Score";
         }
 
     }
+
+    #endregion
 
     public void PauseGame()
     {
@@ -67,6 +98,7 @@ public class HUDManager : MonoBehaviour
 
     public void EndGame()
     {
-        Application.Quit();
+        ResumeGame();
+        SceneManager.LoadScene("StartScene");
     }
 }

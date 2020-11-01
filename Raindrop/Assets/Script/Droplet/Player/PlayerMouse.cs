@@ -13,12 +13,18 @@ public class PlayerMouse : PlayerHolder
 
     [SerializeField] float shrinkage = 0.1f;
 
+    bool isDead = false;//update isnt stopping
+
     protected override void RunUpdate()
     {
-        ShrinkOverTime();
-        AddInput();
-        RotateSprite(direction.x);
-        base.RunUpdate();
+        if (!isDead)
+        {
+
+            ShrinkOverTime();
+            AddInput();
+            RotateSprite(direction.x);
+            base.RunUpdate();
+        }
     }
 
     void AddInput()
@@ -61,6 +67,7 @@ public class PlayerMouse : PlayerHolder
         {
             HUDManager.instance.OnGameOver("You Dried!");
             Debug.Log("Player Shrunk");
+            isDead = true;
         }
     }
 
