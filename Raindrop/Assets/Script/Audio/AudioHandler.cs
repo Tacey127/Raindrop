@@ -12,20 +12,44 @@ public class AudioHandler : MonoBehaviour
     public delegate void UpdateMusic(float num);
     public static UpdateMusic updateMusic;
 
-    public void OnSFXAdjusted(float amount)
+
+    #region singleton
+    public static AudioHandler instance;
+
+    void Awake()
     {
-        updateSFX(amount);
+        if(instance == null)
+        {
+            instance = this;
+        }
     }
 
-    public void OnMusicAdjusted(float amount)
-    {
-        updateMusic(amount);
-    }
+    #endregion
 
     void Start()
     {
         OnMusicAdjusted(audioInfo.music);
         OnSFXAdjusted(audioInfo.soundFX);
+    }
+
+    
+
+    public void OnMusicAdjusted(float amount)
+    {
+        audioInfo.music = amount;
+        Debug.Log(amount);
+        if(updateMusic.GetInvocationList().Length > 0)
+        {
+            updateMusic(amount);
+        }
+    }
+    public void OnSFXAdjusted(float amount)
+    {
+        audioInfo.soundFX = amount;
+        if (updateSFX.GetInvocationList().Length > 0)
+        {
+            updateSFX(amount);
+        }
     }
 }
 

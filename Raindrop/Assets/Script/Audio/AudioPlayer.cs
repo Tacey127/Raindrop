@@ -29,4 +29,18 @@ public class AudioPlayer : MonoBehaviour
         audioSource.volume = amount;
     }
 
+    void OnDestroy()
+    {
+        switch (audioType)
+        {
+            case AudioType.SFX:
+                AudioHandler.updateSFX -= AdjustAudio;
+                break;
+            case AudioType.Music:
+                AudioHandler.updateMusic -= AdjustAudio;
+                break;
+            default:
+                break;
+        }
+    }
 }
