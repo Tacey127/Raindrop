@@ -31,9 +31,6 @@ public class StartMenu : MonoBehaviour
         SceneManager.LoadScene("GameScene");
     }
 
-
-
-
     public void QuitGame()
     {
         Application.Quit();

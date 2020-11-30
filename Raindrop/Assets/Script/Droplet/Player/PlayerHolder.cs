@@ -24,7 +24,6 @@ public class PlayerHolder : MonoBehaviour
 	#endregion
 
 	[SerializeField] protected Transform spriteHolder;
-	[SerializeField] protected Sprite sprite;
 
 	[SerializeField] protected float speed = 1;
 

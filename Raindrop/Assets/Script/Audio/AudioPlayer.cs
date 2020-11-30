@@ -6,7 +6,7 @@ public class AudioPlayer : MonoBehaviour
 {
     [SerializeField]AudioType audioType;
 
-    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioSource audioSource = null;
 
     private void Awake()
     {

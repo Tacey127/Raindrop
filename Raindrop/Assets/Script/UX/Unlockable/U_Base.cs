@@ -7,6 +7,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "UnlockBase", menuName = "Unlock/Base")]
 public class U_Base: ScriptableObject
 {
+    //UI
     public bool locked;
     public bool chosen;
     public bool hidden;
@@ -21,8 +22,10 @@ public class U_Base: ScriptableObject
 [Serializable]
 public struct ThemeSet
 {
+    //GAMEPLAY
     public GameObject playerObject;
-    public GameObject obstacleObject;
+
+    public BulletSpawnVarient[] obstacles;
 
     public GameObject background;
 }

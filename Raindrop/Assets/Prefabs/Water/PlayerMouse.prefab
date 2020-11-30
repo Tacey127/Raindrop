@@ -129,8 +129,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.5, y: 1}
+  m_Offset: {x: 0, y: -0.19}
+  m_Size: {x: 0.5, y: 0.67}
   m_Direction: 0
 --- !u!50 &36987339888880836
 Rigidbody2D:
@@ -165,11 +165,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d8194dbd33d52e46989694a4d5ddace, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteHolder: {fileID: 36987339284315020}
+  spriteHolder: {fileID: 36987339888880835}
   sprite: {fileID: 21300000, guid: 69692cae804fb9540897cd0935ae9396, type: 3}
   speed: 5
   mousePos: {x: 0, y: 0, z: 0}
   turnSmoothing: 10
   minTurn: -40
   maxTurn: 40
-  shrinkage: 0.01
+  shrinkage: 0.08

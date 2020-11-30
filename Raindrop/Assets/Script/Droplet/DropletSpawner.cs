@@ -9,30 +9,42 @@ public class DropletSpawner : MonoBehaviour {
 	
 	[SerializeField] float spawnRate = 1;
 	[SerializeField] float spawnSizeVariance = 3;
+
+	//[SerializeField] float minSize = 0.2f;
+	//[SerializeField] float maxSize = 4f;
+
 	[SerializeField] float spawnXDistance = 2;
 
-	public GameObject spawnObject = null;
+	//float timeSinceSpawn = 0;
 
-	float timeSinceSpawn = 0;
+	[SerializeField] public BulletSpawnVarient[] bullets;
+
+
 
     private void Start()
     {
-		spawnObject = HUDManager.instance.info.themeSet.obstacleObject;    
+		bullets = HUDManager.instance.info.themeSet.obstacles;    
     }
+
 
     // Update is called once per frame
     void Update () {
-		timeSinceSpawn += Time.deltaTime;
-		if (timeSinceSpawn > 1 / spawnRate) {
-			timeSinceSpawn = 0;
-			SpawnDroplet();
-		}
+
+        for (int i = 0; i < bullets.Length; i++)
+        {
+			bullets[i].timeSinceSpawn += Time.deltaTime;
+			if (bullets[i].timeSinceSpawn > 1 / bullets[i].spawnRate)
+			{
+				bullets[i].timeSinceSpawn = 0;
+				SpawnDroplet(bullets[i].droplet ,bullets[i].minSize, bullets[i].maxSize);
+			}
+        }
+
 	}
 
-	void SpawnDroplet()
+	void SpawnDroplet(GameObject spawnObject, float minSize, float maxSize)
     {
-		Debug.Log("spawned");
-		float _size = Random.Range(0.2f, spawnSizeVariance * PlayerHolder.instance.getSize());
+		float _size = Random.Range(minSize, maxSize);
 		float _speed = (1 / _size) + 1;
 
 		AIDroplet droplet = Instantiate(spawnObject, new Vector3(getSpawnLoc(), transform.position.y, 0), Quaternion.identity).GetComponent<AIDroplet>();
@@ -46,4 +58,15 @@ public class DropletSpawner : MonoBehaviour {
 		return (Random.Range (-spawnXDistance, spawnXDistance));
 	}
 
+}
+
+[System.Serializable]
+public struct BulletSpawnVarient
+{
+	public float minSize;
+	public float maxSize;
+	public float spawnRate;
+	public float timeSinceSpawn;
+
+	public GameObject droplet;
 }

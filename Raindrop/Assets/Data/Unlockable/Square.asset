@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33e7c0eec6d48dc41b6da59a5c20a602, type: 3}
-  m_Name: Default
+  m_Name: Square
   m_EditorClassIdentifier: 
   locked: 0
   chosen: 0
@@ -18,6 +18,6 @@ MonoBehaviour:
   icon: {fileID: 0}
   scoreRequired: 0
   themeSet:
-    playerObject: {fileID: 0}
-    obstacleObject: {fileID: 0}
-    background: {fileID: 0}
+    playerObject: {fileID: 2035722916863345674, guid: 39f87f36dd35b7548a2063966d990575, type: 3}
+    obstacleObject: {fileID: 792595287554951614, guid: f90d46538514ced4c935640bb77a9fe9, type: 3}
+    background: {fileID: 8247053572583633958, guid: b5971ef45abc8cd4aaa773abef5cd605, type: 3}

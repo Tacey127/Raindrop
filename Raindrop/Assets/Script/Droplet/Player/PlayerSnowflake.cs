@@ -2,14 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMouse : PlayerHolder
+public class PlayerSnowflake : PlayerHolder
 {
     [SerializeField] Vector3 mousePos = Vector3.zero;
 
-    [SerializeField] float turnSmoothing = 0.2f;
-
-    [SerializeField] float minTurn = -1;
-    [SerializeField] float maxTurn = 1;
+    [SerializeField] float rotationSpeed = 20f;
 
     [SerializeField] float shrinkage = 0.1f;
 
@@ -22,7 +19,7 @@ public class PlayerMouse : PlayerHolder
 
             ShrinkOverTime();
             AddInput();
-            RotateSprite(direction.x);
+            RotateSprite(rotationSpeed);
             base.RunUpdate();
         }
     }
@@ -41,18 +38,7 @@ public class PlayerMouse : PlayerHolder
     //Movement
     void RotateSprite(float dir)
     {
-        Quaternion desiredRotation = Quaternion.identity;
-        if (dir != 0)//input accounts for deadzone
-        {
-            desiredRotation.z = Mathf.Clamp(Mathf.Deg2Rad * 15 * dir, Mathf.Deg2Rad * minTurn, Mathf.Deg2Rad * maxTurn);
-        }
-        else
-        {
-            desiredRotation.z = 0;
-        }
-
-        Quaternion smoothedRotation = Quaternion.Lerp(spriteHolder.transform.rotation, desiredRotation, turnSmoothing * Time.deltaTime);
-        spriteHolder.transform.rotation = smoothedRotation;
+        spriteHolder.transform.Rotate(0, 0, dir * Time.deltaTime);
     }
 
     //Collision
@@ -70,7 +56,7 @@ public class PlayerMouse : PlayerHolder
         spriteHolder.transform.localScale -= Vector3.one * shrinkage * Time.deltaTime;
         if(getSize() < 0)
         {
-            HUDManager.instance.OnGameOver("You Dried!");
+            HUDManager.instance.OnGameOver("You Shrunk!");
             Debug.Log("Player Shrunk");
             isDead = true;
         }

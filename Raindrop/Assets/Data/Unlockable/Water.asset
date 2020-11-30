@@ -9,27 +9,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4523f3f7a520a624fb387f108cc80d68, type: 3}
-  m_Name: InstanceInfo
+  m_Script: {fileID: 11500000, guid: 33e7c0eec6d48dc41b6da59a5c20a602, type: 3}
+  m_Name: Water
   m_EditorClassIdentifier: 
-  bestScore: 28
+  locked: 0
+  chosen: 1
+  hidden: 0
+  icon: {fileID: 21300000, guid: 69692cae804fb9540897cd0935ae9396, type: 3}
+  scoreRequired: 0
   themeSet:
     playerObject: {fileID: 36987339888880832, guid: 312f8cd4bb1d0724e910594a7eee7e2f, type: 3}
     obstacles:
     - minSize: 0.2
       maxSize: 0.5
-      spawnRate: 0.5
-      timeSinceSpawn: 1.230875
+      spawnRate: 0.25
+      timeSinceSpawn: 0.0092393
       droplet: {fileID: 2035722916863345674, guid: 39f87f36dd35b7548a2063966d990575, type: 3}
     - minSize: 0.5
       maxSize: 1
       spawnRate: 0.5
-      timeSinceSpawn: 0.51951635
+      timeSinceSpawn: 0.0092393
       droplet: {fileID: 2035722916863345674, guid: 39f87f36dd35b7548a2063966d990575, type: 3}
     - minSize: 1
       maxSize: 2
-      spawnRate: 0.5
-      timeSinceSpawn: 0.63834155
+      spawnRate: 0.2
+      timeSinceSpawn: 0.0092393
       droplet: {fileID: 2035722916863345674, guid: 39f87f36dd35b7548a2063966d990575, type: 3}
     background: {fileID: 6306148922091664230, guid: 76e7118ef9573464c9b95be2a01102cb, type: 3}
-  chosenSet: {fileID: 11400000, guid: 486657f0a54490a43816b3b123bfcc52, type: 2}

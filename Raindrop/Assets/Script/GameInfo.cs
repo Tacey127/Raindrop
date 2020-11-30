@@ -6,6 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "GameInfo", menuName = "Data/GameInfo")]
 public class GameInfo : ScriptableObject
 {
+    //UI
     [SerializeField]int bestScore;
 
     public int GetBestScore()
@@ -24,11 +25,20 @@ public class GameInfo : ScriptableObject
     }
 
     #region GameInfo
-
+    //GAMEPLAY
     public ThemeSet themeSet;
     
     #endregion
 
-    [SerializeField]List<U_Base> unlockableList;
+    //UX
+    [SerializeField] U_Base chosenSet;
+    public void SetThemeSet(U_Base newSet)
+    {
+        chosenSet.chosen = false;
+        newSet.chosen = true;
+        chosenSet = newSet;
+        themeSet = chosenSet.themeSet;
+    }
+
 }
 

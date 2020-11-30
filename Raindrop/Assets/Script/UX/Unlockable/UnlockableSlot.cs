@@ -42,8 +42,7 @@ public class UnlockableSlot : MonoBehaviour
 
     public virtual void OnSelected()
     {
-        StartMenu.instance.gameInfo.themeSet = UnlockableInfo.themeSet;
-        
+        StartMenu.instance.gameInfo.SetThemeSet(UnlockableInfo);
     }
 
 
