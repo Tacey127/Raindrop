@@ -14,11 +14,7 @@ public class UnlockableSlot : MonoBehaviour
     {
         if(UnlockableInfo != null)
         {
-            if(UnlockableInfo.hidden)
-            {
-                gameObject.SetActive(false);
-            }
-            else if(UnlockableInfo.locked)
+            if(UnlockableInfo.locked)
             {
                 button.interactable = false;
             }

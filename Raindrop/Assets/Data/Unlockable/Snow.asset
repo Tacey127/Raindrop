@@ -20,4 +20,4 @@ MonoBehaviour:
   themeSet:
     playerObject: {fileID: 36987339888880832, guid: 1e1e99bb226742a4bad55dcf0de5e3ee, type: 3}
     obstacles: []
-    background: {fileID: 8247053572583633958, guid: b5971ef45abc8cd4aaa773abef5cd605, type: 3}
+    background: {fileID: 6306148922091664230, guid: 76e7118ef9573464c9b95be2a01102cb, type: 3}
