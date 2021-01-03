@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AudioPlayer : MonoBehaviour
 {
-    [SerializeField]AudioType audioType;
+    [SerializeField]AudioType audioType = new AudioType();
 
     [SerializeField] AudioSource audioSource = null;
 

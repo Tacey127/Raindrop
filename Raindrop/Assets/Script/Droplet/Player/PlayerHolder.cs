@@ -24,6 +24,7 @@ public class PlayerHolder : MonoBehaviour
 	#endregion
 
 	[SerializeField] protected Transform spriteHolder;
+	[SerializeField] GameObject particleObject;
 
 	[SerializeField] protected float speed = 1;
 
@@ -94,6 +95,10 @@ public class PlayerHolder : MonoBehaviour
 	{
 		HUDManager.instance.UpdateScoreUI(other.Score);
 		transform.localScale += other.transform.localScale * 0.2f;
+		if(particleObject != null)
+        {
+			SpawnAbsorbParticleEffect(other.gameObject);
+        }
 		Destroy(other.gameObject);
 	}
 
@@ -102,10 +107,17 @@ public class PlayerHolder : MonoBehaviour
 		Debug.Log("Player is Dead.");
 	}
 
-    #endregion
+	#endregion
 
+	void SpawnAbsorbParticleEffect(GameObject other)
+	{
+		GameObject particle = Instantiate(particleObject, other.transform.position, Quaternion.identity);
+		particle.transform.localScale = other.transform.localScale / 2;
+		ParticleSystem.MainModule pSystem = particle.GetComponent<ParticleSystem>().main;
+		pSystem.startColor = new ParticleSystem.MinMaxGradient(other.GetComponentInChildren<SpriteRenderer>().color);
+	}
 
-    public float getSize()
+	public float getSize()
     {
         return spriteHolder.transform.localScale.x;
     }

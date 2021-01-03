@@ -166,8 +166,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteHolder: {fileID: 36987339284315020}
+  particleObject: {fileID: 5914835667720278192, guid: 34bdeba2cd785f842a3908527826533a, type: 3}
   speed: 2
   mousePos: {x: 0, y: 0, z: 0}
-  turnSmoothing: 10
   rotationSpeed: 30
   shrinkage: 0.01

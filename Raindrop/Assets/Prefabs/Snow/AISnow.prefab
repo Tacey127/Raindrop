@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2035722916863345675}
   - component: {fileID: 2035722916863345670}
   m_Layer: 0
-  m_Name: AIDroplet
+  m_Name: AISnow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48,8 +48,8 @@ MonoBehaviour:
   spriteHolder: {fileID: 2035722918586025488}
   speed: 1
   Score: 1
-  isRotating: 0
-  rotationAmount: 0
+  isRotating: 1
+  rotationAmount: 20
 --- !u!70 &2035722916863345670
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -137,7 +137,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0bf79981e1873e34ab2b9e3f6795455d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b555a1d8145ad6e4e9e8169d0ae2b9b2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

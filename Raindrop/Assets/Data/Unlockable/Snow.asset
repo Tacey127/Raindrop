@@ -19,5 +19,10 @@ MonoBehaviour:
   scoreRequired: 0
   themeSet:
     playerObject: {fileID: 36987339888880832, guid: 1e1e99bb226742a4bad55dcf0de5e3ee, type: 3}
-    obstacles: []
+    obstacles:
+    - minSize: 0.25
+      maxSize: 1
+      spawnRate: 0.2
+      timeSinceSpawn: 7.8359966
+      droplet: {fileID: 2035722916863345674, guid: 3dad3e553fcc06549bd3e05e83a4c2a6, type: 3}
     background: {fileID: 6306148922091664230, guid: 76e7118ef9573464c9b95be2a01102cb, type: 3}

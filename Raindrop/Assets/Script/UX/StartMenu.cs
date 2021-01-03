@@ -25,12 +25,10 @@ public class StartMenu : MonoBehaviour
 
     #endregion
 
-
     GameObject recentBackground = null;
 
     [Header("Transition")]
     [SerializeField] GameObject transitionPanel;
-    [SerializeField] Image transitionPanelImage;
 
     [Header("Data")]
     public GameInfo gameInfo;
@@ -47,52 +45,13 @@ public class StartMenu : MonoBehaviour
 
     IEnumerator ThemeTransition(GameObject _background)
     {
-        StartCoroutine(FadeBlackOutSquare());
+        CameraFade.instance.FadeIn();
         transitionPanel.SetActive(true);
         yield return new WaitForSeconds(0.5f);
         SetBackground(_background);
-        StartCoroutine(FadeBlackOutSquare(false));
+        CameraFade.instance.FadeOut();
         yield return new WaitForSeconds(0.5f);
         transitionPanel.SetActive(false);
-    }
-
-    bool fadeRunning = false;
-
-    IEnumerator FadeBlackOutSquare(bool fadeToBlack = true, int fadeSpeed = 5)
-    {
-        if(fadeRunning)
-        {
-            Debug.LogError("FadeBlackOut IN USE");
-        }
-        fadeRunning = true;
-
-        Color objectColor = transitionPanelImage.color;
-        float fadeAmount;
-        
-        if(fadeToBlack)
-        {
-            while(transitionPanelImage.color.a < 1)
-            {
-                fadeAmount = objectColor.a + (fadeSpeed * Time.deltaTime);
-
-                objectColor = new Color(objectColor.r, objectColor.g, objectColor.b, fadeAmount);
-                transitionPanelImage.color = objectColor;
-                yield return null;
-            }
-        }
-        else
-        {
-            while (transitionPanelImage.color.a > 0)
-            {
-                fadeAmount = objectColor.a - (fadeSpeed * Time.deltaTime);
-
-                objectColor = new Color(objectColor.r, objectColor.g, objectColor.b, fadeAmount);
-                transitionPanelImage.color = objectColor;
-                yield return null;
-            }
-        }
-
-        fadeRunning = false;
     }
 
     void SetBackground(GameObject _chosenBackground)
@@ -106,12 +65,19 @@ public class StartMenu : MonoBehaviour
 
     }
 
-
-
     public void BeginGame()
     {
+        StartCoroutine(GameTransition());
+    }
+
+    IEnumerator GameTransition()
+    {
+        CameraFade.instance.FadeIn();
+        transitionPanel.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
         SceneManager.LoadScene("GameScene");
     }
+
 
     public void QuitGame()
     {

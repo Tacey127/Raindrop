@@ -17,16 +17,21 @@ public class UnlockableSlot : MonoBehaviour
             if(UnlockableInfo.locked)
             {
                 button.interactable = false;
+                Debug.Log("Locked!");
             }
             else if(UnlockableInfo.chosen)
             {
                 //show as selected
                 button.interactable = false;
+
+                Debug.Log("Chosen!");
             }
             else
             {
                 gameObject.SetActive(true);
                 button.interactable = true;
+
+                Debug.Log("Interactable!");
             }
             
         }
